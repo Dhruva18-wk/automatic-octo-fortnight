@@ -1,0 +1,19 @@
+===Input Order File Name==
+===Input Number of Flights to Schedule per day==
+===Number of Orders Per Flight==
+===INPUTORDERMAP=={YYZ=TORONTO, YYC=CALGARY, YVR=VANCOUVER}
+===INPUTORDERMAP=={order-001={destination=YYZ}, order-002={destination=YYZ}, order-003={destination=YYZ}, order-004={destination=YYZ}, order-005={destination=YYZ}, order-006={destination=YYZ}}
+====numberOFDateToIncrement::0
+=================3
+Order: order-001, FlightYYZ=1, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-001, FlightYYZ=2, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-002, FlightYYZ=1, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-002, FlightYYZ=2, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-003, FlightYYZ=1, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-003, FlightYYZ=2, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-004, FlightYYZ=1, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-004, FlightYYZ=2, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-005, FlightYYZ=1, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-005, FlightYYZ=2, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-006, FlightYYZ=1, departure: YUL, arrival: YYZ, day:2021-06-10
+Order: order-006, FlightYYZ=2, departure: YUL, arrival: YYZ, day:2021-06-10
