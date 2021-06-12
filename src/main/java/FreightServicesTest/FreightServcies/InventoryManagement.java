@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 
 
 
@@ -51,41 +53,45 @@ public class InventoryManagement implements FreightServicesInventory {
 		//Read file json and conver to map
 
 		//destination/numberofORders
-		getOrderMap();
-		inputOrderMap.entrySet()
-		.stream()
-		.map(entry -> entry + "=" +entry.getKey())
-		.forEach(entry ->{
-			String destN = entry;
-			LOGGER.config("destn**"+destN);
-			String orderNumber = destN.split("=")[0];
-
-			if(destN.contains("=")) {
-				destN = destN.split("=")[2];
+		try {
+			getOrderMap();
+			inputOrderMap.entrySet()
+			.stream()
+			.map(entry -> entry + "=" +entry.getKey())
+			.forEach(entry ->{
+				String destN = entry;
 				LOGGER.config("destn**"+destN);
-				destN = destN.split("}")[0];
-				LOGGER.config("destn**"+destN);
+				String orderNumber = destN.split("=")[0];
 
-			}
-			if ( cityCode.get(destN) != null) {
-				if( inventoryOrders.get(destN) != null)
-					inventoryOrders.put(destN, inventoryOrders.get(destN)+1);
+				if(destN.contains("=")) {
+					destN = destN.split("=")[2];
+					LOGGER.config("destn**"+destN);
+					destN = destN.split("}")[0];
+					LOGGER.config("destn**"+destN);
 
-				else
-					inventoryOrders.put(destN,1);
+				}
+				if ( cityCode.get(destN) != null) {
+					if( inventoryOrders.get(destN) != null)
+						inventoryOrders.put(destN, inventoryOrders.get(destN)+1);
 
-				DestOrders.put(orderNumber,destN);
-				LOGGER.config("desDestOrderstn**"+inventoryOrders.get(destN));
-				LOGGER.config("inventoryOrders**"+inventoryOrders);
+					else
+						inventoryOrders.put(destN,1);
+
+					DestOrders.put(orderNumber,destN);
+					LOGGER.config("desDestOrderstn**"+inventoryOrders.get(destN));
+					LOGGER.config("inventoryOrders**"+inventoryOrders);
 
 
 
-			}
+				}
 
+			});
 
-		});
-
-		LOGGER.config("===inventoryOrders=="+inventoryOrders);
+			LOGGER.config("===inventoryOrders=="+inventoryOrders);
+		}
+		catch(Exception e) {
+			System.out.println("===There was error while udpating inventory please check..."+ExceptionUtils.getStackTrace(e));
+		}
 
 
 	}
